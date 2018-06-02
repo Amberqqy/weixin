@@ -1,0 +1,19 @@
+/* pages/tab/tab.wxss */
+.bg {
+  background: pink;
+  color: #fff;
+  margin: 4rpx 0;
+  
+}
+.tab-child {
+  margin: 4rpx 0;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+/* .ko {
+  display: block;
+} */

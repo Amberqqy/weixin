@@ -1,0 +1,179 @@
+<view class='box-header'>
+   <text class='big-size'>{{houselist.data.house_info.title}}</text>
+   <text class='little-size'>商铺</text>
+   <text class='now-size'>在售</text>
+   <view class='else-name'>
+   <text>别名：{{houselist.data.house_info.seTitle}}</text>
+   </view>
+</view>
+<view class='box-img clearfix'>
+   <view class='new-image'>
+           <image src='{{item.image_path}}'  class='img-left' wx:for="{{houselist.data.house_info.images}}" wx:key=""></image> 
+          <view class='hipe-view'>
+              <text>+12</text>
+              <view>查看更多</view>
+          </view>
+   </view>
+   <view class='box-list clearfix'>
+       <view class='list-text'>
+          <text class='tal-text'>售房</text>
+          <text class='num-text'>{{houselist.data.house_info.price}}万</text>
+       </view>
+       <view class='list-text'>
+           <text class='tal-text'>房型</text>
+          <text class='num-text'>{{houselist.data.house_info.type}}</text>
+       </view>
+       <view class='list-text'>
+          <text class='tal-text'>建筑面积</text>
+          <text class='num-text'>{{houselist.data.house_info.area}} <rich-text name='sup'>^2</rich-text></text>
+       </view>
+   </view>
+   <view class='about-box'>
+      <view class='box-about'>
+          <text class='black-text'>开盘时间：</text><text class='time-text'>{{houselist.data.house_info.open_time}}</text>
+      </view>
+      <view class='box-about'>
+          <text class='black-text'>地址：</text><text class='time-text'>{{houselist.data.house_info.address}}</text>
+      </view>
+   </view>
+   <button class='more-house' type="" style='border:none;' >更多房源</button>
+</view>
+ <view class='box-tab'>
+  <view class='tab-tal '>
+    <text class='tab-text clearfix' wx:for="{{ houselist.data.typs_conditions }}" wx:key="" wx:for-item="list" data-id="{{index}}" id="{{list.id}}" bindtap='tablist' >
+       {{ list.name }}
+    </text>  
+    <view >
+      <view class='tab-list clearfix' wx:for="{{tablist.data.house_lists}}" wx:key="" >
+          <view class='list-image list-view'>
+              <image src='{{ item.image }}'  style='width:100%; height:100%;'></image>
+          </view>
+          <view class='house-list list-view'>
+              <view class='lala'>
+                  <text class='house-big'>{{ item.title }}</text>
+                  <text class='now-size'>在售</text>
+              </view>
+              <view>
+                  <text class='house-aear'>{{ item.type_id }}</text>
+              </view>
+              <view>
+                  <text class='house-have' wx:for="{{item.tabs}}" wx:key="">{{item}}</text>
+              </view>
+              <view>
+                  <text class='house-num'>{{ item.price }}万</text>
+              </view>
+          </view>
+      </view>
+    </view>
+  </view>
+</view> 
+
+<view class='round'>
+     <view class='box-about'>
+          <text class='round-text'>用户评价</text>
+          <text class='round-more'>更多点评</text>
+     </view>
+     <view>
+         <view class='discuss-info' style='padding:40rpx 0; border-bottom:2rpx solid #e5e5e5;'>
+             <view class='info-tatal'>
+                 <view style='display:inline-block'>
+                      <image src='../image/Star_small1.png' style='width:24rpx; height:24rpx;display:inline-block; margin-right:5rpx;'></image>
+                      <image src='../image/Star_small1.png' style='width:24rpx; height:24rpx;display:inline-block; margin-right:5rpx;'></image>
+                      <image src='../image/Star_small1.png' style='width:24rpx; height:24rpx;display:inline-block; margin-right:5rpx;'></image>
+                      <image src='../image/Star_small1.png' style='width:24rpx; height:24rpx;display:inline-block; margin-right:5rpx;'></image>
+                       <image src='../image/Star_small2.png' style='width:24rpx; height:24rpx;display:inline-block; margin-right:5rpx;'></image>
+                 </view>
+                <view style='display:inline-block; margin-left:15rpx;'>
+                    <view style='font-size:30rpx;'>综合 <text style='color:#FF7326; font-size:40rpx; font-weight:600;'>40</text> 分 </view>
+                 </view>
+             </view>
+             <text class='info-people info-hr' wx:for="{{houselist.data.comments.tab_score}}" wx:key=""> {{ item.name }}</text>
+         </view>
+         <view style='padding: 40rpx 0;'>
+           <rich-text name='a' class='rice-mark'>全部评价</rich-text>
+           <rich-text name='a' class='rice-mark'>全部评价</rich-text>
+           <rich-text name='a' class='rice-mark'>全部评价</rich-text>
+           <rich-text name='a' class='rice-mark'>全部评价</rich-text>
+           <rich-text name='a' class='rice-mark'>全部评价</rich-text>
+         </view>
+         <view wx:for="{{houselist.data.comments.comment }}" wx:key="" wx:for-item="list" style='margin:30rpx 0; border-bottom:2rpx solid #e5e5e5; padding-bottom:20rpx;'>
+            <view style='display:inline-block; margin-right:24rpx;vertical-align:top'>
+                 <image src='{{list.user_image}}' style='width:90rpx;height:90rpx;border-radius:50%;'></image>
+            </view>
+            <view style='display:inline-block' >
+                 <view style='font-size:32rpx; font-weight:600;'>{{list.user_name}}</view>
+                 <view style='display:inline-block; margin-right:20rpx;'>
+                      <image src='../image/Star_small1.png' style='width:16rpx; height:16rpx;display:inline-block; margin-right:10rpx;'></image>
+                      <image src='../image/Star_small1.png' style='width:16rpx; height:16rpx;display:inline-block; margin-right:10rpx;'></image>
+                      <image src='../image/Star_small1.png' style='width:16rpx; height:16rpx;display:inline-block; margin-right:10rpx;'></image>
+                      <image src='../image/Star_small1.png' style='width:16rpx; height:16rpx;display:inline-block; margin-right:10rpx;'></image>
+                       <image src='../image/Star_small2.png' style='width:16rpx; height:16rpx;display:inline-block; margin-right:10rpx;'></image>
+                 </view>
+                 <text class='info-people info-hr' wx:for="{{list.user_score}}" wx:key=''> {{ item.name }} {{ item.score }}</text>
+            </view>
+            <view class="{{isall ? 'mask-all' : 'else-all'}}">
+                {{ list.user_comment }}
+            </view>
+            <!-- <rich-text name='a' style='color: #859BAE; font-size:26rpx;' bindtap='allclick' wx:if="{{ isall }}" class="{{testshow ? 'show' : 'hide'}}">全文</rich-text>
+            <rich-text name='a' style='color: #859BAE; font-size:26rpx;' bindtap='allclick' wx:else="{{ isall }}" >收起</rich-text> -->
+            <text class='info-people'>{{ list.create_time }}</text>
+         </view>
+      </view>
+</view>
+
+<view class='round'>
+     <view class='box-about'>
+          <text class='round-text'>买房问大家</text>
+          <text class='round-more'>更多推荐</text>
+     </view>
+     <view>
+         <view class='buy-info' wx:for="{{houselist.data.questions }}" wx:key="">
+             <text class='info-log'>问</text>
+             <text class='info-tatal'> {{item.question}}</text>
+             <text class='info-people'>{{item.attention_num}}人关注 | {{item.answer_num}}人回答</text>
+         </view>
+     </view>
+</view>
+
+<view class='round'>
+     <view class='box-about'>
+          <text class='round-text'>周边推荐</text>
+          <text class='round-more'>更多推荐</text>
+     </view>
+     <scroll-view scroll-x="true" class='box-round' >
+         <view class='list-round' wx:for="{{houselist.data.hotlists}}" wx:key="">
+             <image src='{{item.image }}' style='width:390rpx;height:392rpx;' mode='scaleToFill'></image>
+             <view class='lala'>
+                <text class='house-big round-tal'>{{item.title}}</text>
+                <text class='now-size'>在售</text>
+            </view>
+            <view>
+                <text class='house-aear'>{{item.address}}</text>
+            </view>
+            <view>
+                <text class='house-num'>{{item.uprice}}万</text>
+            </view> 
+         </view>
+          <!-- <view class='list-round'>
+             <image src='../image/one.jpg' style='width:390rpx;height:392rpx;' mode='scaleToFill'></image>
+             <view class='lala'>
+                <text class='house-big round-tal'>两室一厅一卫sssssssssssssssssssssssssss</text>
+                <text class='now-size'>在售</text>
+            </view>
+            <view>
+                <text class='house-aear'>面积多少</text>
+                <text class='house-aear'>面积多少</text>
+            </view>
+            <view>
+                <text class='house-num'>约630万</text>
+            </view>
+         </view> -->
+     </scroll-view>
+</view>
+<view style='width:100%;height:120rpx;text-align:center;font-size:28rpx; background:#e5e5e5;color: #6B7072;line-height:120rpx;'>
+    hahahahhahah
+</view>
+<view class='btn-buttom'>
+    <button size='default' type='default' class='btn-left btn-lg' style='background-image: linear-gradient(148deg, #FF9793 0%, #FE615A 100%);color:#fff'>讯优惠</button>
+    <button size='default' type='default' class='btn-right btn-lg' style='background-image: linear-gradient(148deg, #6898F8 0%, #2C68E0 100%);color:#fff'>联系售后出</button>
+</view>

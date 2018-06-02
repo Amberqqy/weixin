@@ -1,0 +1,12 @@
+<view class='tab-head' wx:for="{{tablist}}" wx:key="" bindtap='listclick'  data-list="{{item}}"   data-id="{{index}}"  class="{{haha == index ? 'bg' : ''}}">
+   {{ item.day }}
+</view>
+<view class='tab-child' wx:for="{{tabchild}}" wx:key="" wx:for-item="list" bindtap='childclick' data-item="{{list}}" data-index="{{index}}" class="{{list.allow == 1 ? 'bg' : ''}}">
+{{ list.time }}
+</view>
+<view >  
+  <modal title="提示" hidden="{{modalHidden}}" confirm-text="确定"  
+  cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">  
+    已经被别人选择了
+  </modal>  
+</view>  
